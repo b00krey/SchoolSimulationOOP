@@ -23,7 +23,7 @@ namespace SchoolSimulationOOP
             {
                 for (int i = 0; i < Students.Count; i++)
                 {
-                    Console.WriteLine("{0, -10} {1, -10} {2, -10}", Students[i].FirstName, Students[i].LastName, Students[i].Age);
+                    Console.WriteLine("{0}. {1, -15} {2, -15} {3, -15}", i + 1, Students[i].FirstName, Students[i].LastName, Students[i].Age);
                 }
             }
         }
@@ -32,6 +32,13 @@ namespace SchoolSimulationOOP
         {
             Students.Add(student);
             Console.WriteLine($"Студент {student.FirstName} успешно добавлен в школу {Name}.");
+        }
+
+        public void GetRidOffStudent(int index)
+        {
+            index--;
+            Console.WriteLine($"Студент {Students[index].FirstName} вас больше никогда не побеспокоит...");
+            Students.RemoveAt(index);
         }
     }
 }
