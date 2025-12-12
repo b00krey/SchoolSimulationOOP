@@ -7,7 +7,6 @@ namespace SchoolSimulationOOP
     {
         public string Name;
         public List<Student> Students;
-
         public School(string name)
         {
             Name = name;
@@ -27,6 +26,12 @@ namespace SchoolSimulationOOP
                     Console.WriteLine("{0, -10} {1, -10}", Students[i].FirstName, Students[i].LastName);
                 }
             }
+        }
+
+        public void AddNewStudent(Student student)
+        {
+            Students.Add(student);
+            Console.WriteLine($"Студент {student.FirstName} успешно добавлен в школу {Name}.");
         }
     }
 }

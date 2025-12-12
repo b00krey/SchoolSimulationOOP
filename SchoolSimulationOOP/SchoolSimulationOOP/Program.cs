@@ -17,6 +17,19 @@ namespace SchoolSimulationOOP
                 string userAnswer = Console.ReadLine();
                 if (userAnswer == "да")
                     school.PrintStudents();
+
+                Console.WriteLine($"Хотите добавить нового ученика в школу {school.Name}? Введите да или нет. ");
+                userAnswer = Console.ReadLine();
+                if (userAnswer == "да")
+                {
+                    Console.WriteLine("Введите имя ученика");
+                    string firstName = Console.ReadLine();
+                    Console.WriteLine("Введите фамилию ученика");
+                    string lastName = Console.ReadLine();
+
+                    Student student = new Student(firstName, lastName);
+                    school.AddNewStudent(student);
+                }
             }
         }
     }
