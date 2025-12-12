@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Globalization;
 
-namespace SchoolSimulationOOP
-{
-    static class Programm
-    {
-        static bool GetUSerAnswer()
+namespace SchoolSimulationOOP {
+    static class Program {
+        static bool GetUserAnswer()
         {
             string userAnswer = Console.ReadLine().ToLower();
-            return userAnswer == "да";
+            return userAnswer == "yes";
         }
 
         static bool CheckIndexInput(School school, string input)
@@ -18,7 +16,7 @@ namespace SchoolSimulationOOP
                     return false;
 
             int n = int.Parse(input);
-            if (n >= school.Students.Count || n < 0)
+            if (n > school.Students.Count || n < 1)
                 return false;
 
             return true;
@@ -37,30 +35,29 @@ namespace SchoolSimulationOOP
             return true;
         }
 
-
         static void Main()
         {
-            Console.WriteLine("Здравствуйте! Введите название вашей школы");
+            Console.WriteLine("Hello! Enter the name of your school");
             string schoolName = Console.ReadLine();
             School school = new School(schoolName);
-            Console.WriteLine($"Школа {school.Name} успешно создана");
+            Console.WriteLine($"School {school.Name} has been successfully created");
 
             while (true)
             {
-                Console.WriteLine($"Хотите посмотреть список учеников школы {school.Name}? Введите да или нет. ");
-                bool isPositiveAnswer = GetUSerAnswer();
+                Console.WriteLine($"Do you want to see the list of students at school {school.Name}? Enter yes or no.");
+                bool isPositiveAnswer = GetUserAnswer();
                 if (isPositiveAnswer)
                     school.PrintStudents();
 
-                Console.WriteLine($"Хотите добавить нового ученика в школу {school.Name}? Введите да или нет. ");
-                isPositiveAnswer = GetUSerAnswer();
+                Console.WriteLine($"Do you want to add a new student to school {school.Name}? Enter yes or no.");
+                isPositiveAnswer = GetUserAnswer();
                 if (isPositiveAnswer)
                 {
-                    Console.WriteLine("Введите имя ученика");
+                    Console.WriteLine("Enter the student's first name");
                     string firstName = Console.ReadLine();
-                    Console.WriteLine("Введите фамилию ученика");
+                    Console.WriteLine("Enter the student's last name");
                     string lastName = Console.ReadLine();
-                    Console.WriteLine("Введите возраст ученика");
+                    Console.WriteLine("Enter the student's age");
                     string ageInput = Console.ReadLine();
 
                     if (CheckAgeInput(ageInput))
@@ -71,20 +68,20 @@ namespace SchoolSimulationOOP
                     }
                     else
                     {
-                        Console.WriteLine("Некорректный ввод возраста");
-                    }              
+                        Console.WriteLine("Invalid age input");
+                    }
                 }
 
-                Console.WriteLine($"Хотите избавиться от одного из ученков школы {school.Name}? Введите да или нет.");
-                isPositiveAnswer = GetUSerAnswer();
+                Console.WriteLine($"Do you want to remove one of the students from school {school.Name}? Enter yes or no.");
+                isPositiveAnswer = GetUserAnswer();
                 if (isPositiveAnswer)
                 {
-                    Console.WriteLine("Введите номер ученика для избавления");
+                    Console.WriteLine("Enter the student number to remove");
                     string userAnswer = Console.ReadLine();
                     if (CheckIndexInput(school, userAnswer))
-                        school.GetRidOffStudent(int.Parse(userAnswer));
+                        school.RemoveStudent(int.Parse(userAnswer));
                     else
-                        Console.WriteLine("Некорректный ввод");
+                        Console.WriteLine("Invalid input");
                 }
             }
         }

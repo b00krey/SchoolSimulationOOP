@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SchoolSimulationOOP
-{
-    class School
-    {
+namespace SchoolSimulationOOP {
+    class School {
         public string Name;
         public List<Student> Students;
         public School(string name)
@@ -17,7 +15,7 @@ namespace SchoolSimulationOOP
         {
             if (Students.Count == 0)
             {
-                Console.WriteLine($"В школе {Name} пока нет учеников!");
+                Console.WriteLine($"There are no students in school {Name} yet!");
             }
             else
             {
@@ -31,13 +29,13 @@ namespace SchoolSimulationOOP
         public void AddNewStudent(Student student)
         {
             Students.Add(student);
-            Console.WriteLine($"Студент {student.FirstName} успешно добавлен в школу {Name}.");
+            Console.WriteLine($"Student {student.FirstName} has been successfully added to school {Name}.");
         }
 
-        public void GetRidOffStudent(int index)
+        public void RemoveStudent(int index)
         {
             index--;
-            Console.WriteLine($"Студент {Students[index].FirstName} вас больше никогда не побеспокоит...");
+            Console.WriteLine($"Student {Students[index].FirstName} will never bother you again...");
             Students.RemoveAt(index);
         }
     }
