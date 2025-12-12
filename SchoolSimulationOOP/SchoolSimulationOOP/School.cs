@@ -23,7 +23,7 @@ namespace SchoolSimulationOOP
             {
                 for (int i = 0; i < Students.Count; i++)
                 {
-                    Console.WriteLine("{0, -10} {1, -10}", Students[i].FirstName, Students[i].LastName);
+                    Console.WriteLine("{0, -10} {1, -10} {2, -10}", Students[i].FirstName, Students[i].LastName, Students[i].Age);
                 }
             }
         }

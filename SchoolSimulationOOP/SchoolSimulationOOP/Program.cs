@@ -26,8 +26,10 @@ namespace SchoolSimulationOOP
                     string firstName = Console.ReadLine();
                     Console.WriteLine("Введите фамилию ученика");
                     string lastName = Console.ReadLine();
+                    Console.WriteLine("Введите возраст ученика");
+                    int age = int.Parse(Console.ReadLine());
 
-                    Student student = new Student(firstName, lastName);
+                    Student student = new Student(firstName, lastName, age);
                     school.AddNewStudent(student);
                 }
             }
